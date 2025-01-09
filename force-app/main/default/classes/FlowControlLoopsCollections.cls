@@ -155,8 +155,22 @@ public with sharing class FlowControlLoopsCollections {
      * @return The grade for the given score.
      */
     public static String determineGrade(Integer score) {
-        return null; // Replace null with the variable you used to store the result
+        if (score == null) {
+        return null; 
     }
+    if (score >= 90) {
+        return 'A';
+    } else if (score >= 80) {
+            return 'B';
+    } else if (score >= 70) {
+            return 'C';
+    } else if (score >= 60) {
+            return 'D';
+    } else {
+            return 'F';
+        }
+    }
+
 
 
     /**
@@ -167,14 +181,18 @@ public with sharing class FlowControlLoopsCollections {
      * @return The sum of all integers up to the limit.
      */
     public static Integer sumUpToLimit(Integer intLimit) {
-        /* 
-         for (){
-            
-         }
-        */
+        Integer sum = 0; // Declare and initialize sum
 
-        return null; // Replace null with the variable you used to store the result
-    }
+        if (intLimit == null) {
+            return null;
+        }
+        for (Integer i = 1; i <= intLimit; i++) {
+            sum += i; // Add each number to the sum
+        }
+        return sum;
+             
+      }
+      
 
     /**
      * Question 9
@@ -184,15 +202,13 @@ public with sharing class FlowControlLoopsCollections {
      */
     public static String returnHelloWorld() {
         // Initialize the result String
-
+        String result1 ='';
         // Use a for loop to append 'Hello World!;' to the result string three times
-        /* 
-         for (){
-            
-         }
-        */
+        for (Integer i = 0; i < 3; i++){
+            result += 'Hello World!; '; // Add Hello World!; to the result string
+        }
 
-        return null; // Replace null with the variable you used to store the result
+        return result1; 
     }
 
     /**
@@ -207,18 +223,19 @@ public with sharing class FlowControlLoopsCollections {
      */
     public static String repeatString(String inputString, Integer repeatCount) {
         // Initialize the result String
-
-        // Use a for loop to append the inputString to the result string repeatCount times
-        /*
-        for () {
-
-            // If it is not the last iteration, add a semicolon to separate the strings
+        String result2 = '';
+        
+        // Use a for loop to append inputString + ; to the result string repeatCount - 1 times
+        for (Integer i = 0; i < repeatCount; i++){
+            result2 += inputString; // Append the input string to the result string
+            if (i < repeatCount -1) {
+            result2 += '; '; // Add a semi colon to the result string
         }
-        */
-
-        // Return the final result string
-        return null; // Replace null with the variable you used to store the result
     }
+        return result2;
+        }
+        
+    
 
     /**
      * Question 11
@@ -228,14 +245,14 @@ public with sharing class FlowControlLoopsCollections {
      */
     public static List<Integer> createAndPopulateList() {
         // Create a new list of integers
+        List<Integer> numberList = new List<Integer>();
 
         // Add the integers 1, 2, and 3 to the list
-        // add 1
-        // add 2
-        // add 3
+        for (Integer i = 1; i <= 3; i++) {
+            numberList.add(i);}
 
         // Return the populated list
-        return null; // Replace null with the variable you used to store the result
+        return numberList; 
     }
 
     /**
@@ -249,9 +266,10 @@ public with sharing class FlowControlLoopsCollections {
         List<Integer> numberList = new List<Integer>{1, 2, 3, 4, 5}; //DO NOT CHANGE
 
         // Remove the 3rd element (number 3) from the list
+        numberList.remove(2);
         
         // Return the updated list
-        return null; // Replace null with the variable you used to store the result
+        return numberList; 
     }
 
     /**
@@ -263,14 +281,18 @@ public with sharing class FlowControlLoopsCollections {
      */
     public static List<Integer> createIntegerList(Integer n) {
         // Create a new list of integers 
+        List<Integer> numberList = new List<Integer>();
 
-        /*
-        for() {
-            //add integer to the list
+        // Check for negative or null values
+        if (n == null || n <= 0) {
+            return new List<Integer>(); // Return an empty lsit for an invalid input
         }
-        */ 
 
-        return null; // Replace null with the variable you used to store the result
+        for (Integer i = 1; i <= n; i++) {
+            //add integer to the list
+            numberList.add(i);
+        }
+        return numberList; 
     }
 
     /**
@@ -285,9 +307,17 @@ public with sharing class FlowControlLoopsCollections {
         // Create a new Set of strings
         Set<String> stringSet = new Set<String>();
 
-        //add strings to the set
+        // Check if inputList is null
+        if (inputList == null) {
+            return new Set<String>(); // Return an empty set for an invalid input
+        }
 
-        return null; // Replace null with the variable you used to store the result
+        //add strings to the set
+        for (String i : inputList) {
+            stringSet.add(i);
+        }
+
+        return stringSet; 
     }
 
     /**
@@ -298,12 +328,18 @@ public with sharing class FlowControlLoopsCollections {
      */
     public static Integer sumPositiveIntegers() {
         List<Integer> numbers = new List<Integer>{-1, 2, -3, 4, -5, 6}; //DO NOT CHANGE
-
-        // Loop through the list of integers
-            // if the number is negative skip this iteration
+        Integer sum = 0; // Create a sum variable and initialize to zero
         
-
-        return null; // Replace null with the variable you used to store the result
+        // Loop through the list of integers
+        for(Integer n : numbers) {
+            // Check if the number is positive
+            if(n > 0) {
+                // Add the number to the sum
+                sum += n;
+            }
+        }
+    
+        return sum; 
     }
 
     /**
@@ -316,11 +352,19 @@ public with sharing class FlowControlLoopsCollections {
      */
     public static Integer findWordInList(String wordToFind, List<String> words) {
         // The variable to store the index of the word
+        Integer index = -1;
 
         // Loop through the list of words
-            // If the current word is the word to find, exit the loop
+        for(String word : words) {
+            // Check if the current word is the word to find
+            if(word.equals(wordToFind)) {
+                // If the word is found, store the index of the word and exit the loop
+                index = words.indexOf(word);
+                break;
+        }
+     }      
 
-        return null; // Replace null with the variable you used to store the result
+        return index; 
     }
 
     /**
@@ -333,8 +377,15 @@ public with sharing class FlowControlLoopsCollections {
     public static Decimal countMoney() {
         // The list of money in the wallet, represented in dollars and cents
         List<Decimal> moneyInWallet = new List<Decimal>{0.50, 10, 3.84, 24.60, 9.08, 50, 4.90}; //DO NOT CHANGE
-
-        return null; // Replace null with the variable you used to store the result
+        Decimal sum = 0;
+        // Adds moneyInWallet to sum until exceeds 40 dollars
+        for(Decimal dollar : moneyInWallet) {
+            sum += dollar;  
+            if(sum > 40) {
+                break;
+            }
+        }
+        return sum; 
     }
 
     /**
