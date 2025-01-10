@@ -205,7 +205,7 @@ public with sharing class FlowControlLoopsCollections {
         String result1 ='';
         // Use a for loop to append 'Hello World!;' to the result string three times
         for (Integer i = 0; i < 3; i++){
-            result += 'Hello World!; '; // Add Hello World!; to the result string
+            result1 += 'Hello World!; '; // Add Hello World!; to the result string
         }
 
         return result1; 
